@@ -37,15 +37,6 @@ public class AutomaticGradeReader {
                             if(scanner.next().equals("Yes")) {
                                 double res = ManualGradeReader.calculateMoyenne(Stream.of(grades).mapToDouble(Double::doubleValue).toArray());
                                 System.out.println("Your average is: [" + res + "/20]");
-                                System.out.println("GoodBye ://");
-                                Timer timer = new Timer();
-                                TimerTask timerTask = new TimerTask() {
-                                    @Override
-                                    public void run() {
-                                        System.exit(0);
-                                    }
-                                };
-                                timer.schedule(timerTask,new Date(System.currentTimeMillis()+ 5 * 1000));
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -60,5 +51,14 @@ public class AutomaticGradeReader {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("GoodBye ://");
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                System.exit(0);
+            }
+        };
+        timer.schedule(timerTask,new Date(System.currentTimeMillis()+ 3 * 1000));
     }
 }
